@@ -10,4 +10,14 @@ shop = [
         ['седло', 2700]
 ]
 
-# TODO здесь писать код
+part_name = input("Название детали: ")
+
+quantity_part = int(input("\nКоличество деталей: "))
+summ = 0
+
+for name in shop:
+        if part_name == name[0]:
+                summ += name[1]
+
+
+print(f"\nОбщая стоимость: {summ}")
