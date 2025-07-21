@@ -24,4 +24,20 @@ store = {
     ],
 }
 
-# TODO здесь писать код
+for item in goods:
+    total_quant = 0
+    total_price = 0
+    flag = True
+    for _ in store:
+        if flag == False:
+                break
+        data_inv_nam = store[goods[item]]
+        flag = False
+        for posit in data_inv_nam:
+            total_quant += posit["quantity"]
+            total_price += posit["price"] * posit["quantity"]
+
+    print("\n{item} - {quantity} штук, стоимость {price} рубля.".format(item = item, quantity = total_quant, price = total_price))
+
+
+
