@@ -1,3 +1,12 @@
+def function_find(data_students):
+    list_interests = list()
+    string = ''
+    for index in data_students:
+        list_interests += (data_students[index]['interests'])
+        string += data_students[index]['surname']
+    len_surnames = len(string)
+    return set(list_interests), len_surnames
+
 students = {
     1: {
         'name': 'Bob',
@@ -19,26 +28,11 @@ students = {
     }
 }
 
+pairs = [(i, students[i]["age"]) for i in students]
 
-def f(dict):
-    lst = []
-    string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
+my_list_interests, total_len_surname  = function_find(students)
 
-
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
-
-
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
-
-# TODO исправить код
+print("Результат работы программы:")
+print("\nСписок пар «ID студента — возраст»:", pairs)
+print("\nПолный список интересов всех студентов:", my_list_interests)
+print("\nОбщая длина всех фамилий студентов:", total_len_surname)
